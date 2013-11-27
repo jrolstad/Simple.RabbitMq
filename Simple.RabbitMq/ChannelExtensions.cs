@@ -63,6 +63,14 @@ namespace Simple.RabbitMq
             return channel;
         }
 
+        public static IModel SetMessageFetchSize(this IModel channel, int size)
+        {
+            var preFetchCount = (ushort) size;
+            channel.BasicQos(prefetchSize: 0, prefetchCount: preFetchCount, global: false);
+
+            return channel;
+        }
+
         private static byte[] ConvertTypeToJsonBytes<T>(T message)
         {
             var messageAsString = JsonConvert.SerializeObject(message);

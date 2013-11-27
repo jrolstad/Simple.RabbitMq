@@ -58,6 +58,7 @@
     <Compile Include="Publishing\PublishCollectionOfMessagesToExchange.cs" />
     <Compile Include="Publishing\PublishCollectionOfMessagesToExchangeAsync.cs" />
     <Compile Include="Publishing\PublishSingleMessageToExchange.cs" />
+    <Compile Include="Subscribing\SubscribeToQueue.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Simple.RabbitMq\Simple.RabbitMq.csproj">

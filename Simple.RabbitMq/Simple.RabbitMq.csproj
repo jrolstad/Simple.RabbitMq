@@ -47,7 +47,9 @@
   <ItemGroup>
     <Compile Include="ChannelExtensions.cs" />
     <Compile Include="DisposableConnectionFactory.cs" />
+    <Compile Include="MockableSubscription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubscriptionFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
