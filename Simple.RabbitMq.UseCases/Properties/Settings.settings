@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Simple.RabbitMq.UseCases.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="RabbitMqUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">amqp://nvdfljko:D-oYbOfCT-zF7i_hdjdYbwFhhGdXuT0C@lemur.cloudamqp.com/nvdfljko</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
