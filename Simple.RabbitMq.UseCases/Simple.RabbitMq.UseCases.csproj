@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Creation\CreateExchange.cs" />
+    <Compile Include="Creation\CreateExchangeForType.cs" />
+    <Compile Include="Creation\CreateQueue.cs" />
+    <Compile Include="Creation\CreateQueueAndBindToExchange.cs" />
+    <Compile Include="Creation\CreateQueueAndBindToExchangeForType.cs" />
+    <Compile Include="Creation\CreateQueueForType.cs" />
     <Compile Include="Messages\UsableMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

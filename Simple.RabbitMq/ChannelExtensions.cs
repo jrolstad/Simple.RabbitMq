@@ -34,6 +34,35 @@ namespace Simple.RabbitMq
             return channel;
         }
 
+        public static IModel QueueDeclare<T>(this IModel channel, bool isDurable = false, bool isExclusive = false, bool isAutoDelete = false)
+        {
+            var queueName = typeof (T).FullName;
+            channel.QueueDeclare(queue: queueName, durable: isDurable, exclusive: isExclusive, autoDelete: isAutoDelete,arguments:null);
+
+            return channel;
+        }
+
+        public static IModel ExchangeDeclare<T>(this IModel channel, string exchangeType)
+        {
+            var exchangeName = typeof(T).FullName;
+            channel.ExchangeDeclare(exchange:exchangeName,type:exchangeType);
+
+            return channel;
+        }
+
+        public static IModel QueueBind<T>(this IModel channel, string routingKey=null)
+        {
+            var name = typeof(T).FullName;
+            var queueName = name;
+            if (!string.IsNullOrWhiteSpace(routingKey))
+            {
+                queueName = string.Format("{0}.{1}", name, routingKey);
+            }
+            channel.QueueBind(queue: queueName, exchange: name, routingKey: routingKey ?? string.Empty);
+
+            return channel;
+        }
+
         private static byte[] ConvertTypeToJsonBytes<T>(T message)
         {
             var messageAsString = JsonConvert.SerializeObject(message);
