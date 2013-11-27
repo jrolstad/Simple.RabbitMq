@@ -49,6 +49,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Publishing\PublishCollectionOfMessagesToExchange.cs" />
+    <Compile Include="Publishing\PublishCollectionOfMessagesToExchangeAsync.cs" />
     <Compile Include="Publishing\PublishSingleMessageToExchange.cs" />
   </ItemGroup>
   <ItemGroup>
