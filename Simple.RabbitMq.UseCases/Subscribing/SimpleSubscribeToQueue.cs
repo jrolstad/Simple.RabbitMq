@@ -1,9 +1,11 @@
-﻿using RabbitMQ.Client.MessagePatterns;
+﻿using System;
+using RabbitMQ.Client.Events;
+using RabbitMQ.Client.MessagePatterns;
 using Simple.RabbitMq.UseCases.Messages;
 
 namespace Simple.RabbitMq.UseCases.Subscribing
 {
-    public class SubscribeToQueue
+    public class SimpleSubscribeToQueue
     {
         public void Execute()
         {
@@ -15,13 +17,20 @@ namespace Simple.RabbitMq.UseCases.Subscribing
             using (var subscriptionFactory = new SubscriptionFactory())
             using (var subscription = subscriptionFactory.Create(channel:channel,queueName:"TheUsableMessageQueue"))
             {
-                foreach (var message in subscription)
+                
+                foreach (var message in subscription.Messages)
                 {
-                    subscription.LatestEvent.
+                    var messageBody = message.BodyAsJson<UsableMessage>();
+                    ProcessMessage(messageBody);
+                    
+                    subscription.Ack(message);
                 }
-
-               
             }
+        }
+
+        private static void ProcessMessage(UsableMessage message)
+        {
+            Console.WriteLine(message.Description);
         }
     }
 }

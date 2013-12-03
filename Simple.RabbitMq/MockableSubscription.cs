@@ -1,4 +1,8 @@
-﻿using RabbitMQ.Client;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using RabbitMQ.Client.MessagePatterns;
 
 namespace Simple.RabbitMq
@@ -13,6 +17,12 @@ namespace Simple.RabbitMq
         {
         }
 
-       
+        public virtual IEnumerable<BasicDeliverEventArgs> Messages
+        {
+            get
+            {
+                return this.Cast<BasicDeliverEventArgs>();
+            }
+        }
     }
 }
