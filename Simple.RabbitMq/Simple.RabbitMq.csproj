@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicDeliverEventArgsExtensions.cs" />
     <Compile Include="ChannelExtensions.cs" />
     <Compile Include="DisposableConnectionFactory.cs" />
     <Compile Include="MockableSubscription.cs" />
