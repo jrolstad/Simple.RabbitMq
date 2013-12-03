@@ -22,5 +22,20 @@ namespace Simple.RabbitMq
 
             return bodyAsValue;
         }
+
+        public static T GetHeaderValue<T>(this BasicDeliverEventArgs message, string headerName)
+        {
+            var headerValue = default(T);
+
+            if (message != null &&
+                message.BasicProperties != null &&
+                message.BasicProperties.Headers != null &&
+                message.BasicProperties.Headers.ContainsKey(headerName))
+            {
+                headerValue = (T) message.BasicProperties.Headers[headerName];
+            }
+
+            return headerValue;
+        }
     }
 }
